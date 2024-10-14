@@ -1,0 +1,17 @@
+services:
+  spyserver:
+    container_name: spyserver
+    restart: unless-stopped
+    privileged: true
+    environment:
+      - LIST_IN_DIRECTORY=0
+      - DEVICE_TYPE=RTL-SDR
+      - DEVICE_SERIAL=0x1
+      - BIND_PORT=5555
+    ports:
+      - "5555:5555"
+    image: uacmarine556/spyserver:latest
+    devices:
+      - "/dev/bus/usb"
+    cap_add:
+      - SYS_NICE
