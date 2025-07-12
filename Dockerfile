@@ -24,9 +24,9 @@ RUN wget https://airspy.com/downloads/spyserver-arm64.tgz; \
     rm spyserver-arm64.tgz;
 
 RUN mv spyserver /usr/bin && \
-    mkdir -p /etc/spyserver
+    mkdir -p /etc/spyserver && \
+    mv spyserver.config /etc/spyserver
 
 COPY run.sh .
-COPY spyserver.config .
-
+RUN chmod +x run.sh
 ENTRYPOINT ["./run.sh"]
