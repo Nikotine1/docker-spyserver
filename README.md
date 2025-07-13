@@ -18,22 +18,34 @@ See [docker-compose.yml](https://github.com/Nikotine1/docker-spyserver/blob/mast
 
 All configuration for this Docker container is done via environmental variables with sane defaults. To change a setting, simply set the appropriate environment variable.
 
-| Environment Variable     | Default Value | Notes |
-|:------------------------:|:-------------:|:------|
-|`BIND_PORT`               |`5555`         |Port to run SpyServer on|
-|`LIST_IN_DIRECTORY`       |`1`            |List Server in the [AirSpy Directory](https://airspy.com/directory/), `1` for yes, `0` for no|
-|`OWNER_NAME`              |               |Name in the directory|
-|`OWNER_EMAIL`             |               |Directory contact|
-|`ANTENNA_TYPE`            |               |Random Wire/Magnetic Loop/Mini-Whip/Inverted V/etc.|
-|`ANTENNA_LOCATION`        |               |Lat/Long, eg. `48.858332, 2.294560`|
-|`GENERAL_DESCRIPTION`     |               |Description for the directory|
-|`MAXIMUM_CLIENTS`         |`1`            |Maximum number of clients that can connect at a time|
-|`MAXIMUM_SESSION_DURATION`|`0`            |Maximum session duration in minutes. `0` for no limit|
-|`AlLOW_CONTROL`           |`1`            |Allow clients to retune and change of gain of the device|
-|`DEVICE_TYPE`             |`Auto`         |Possible Values: `AirspyOne`, `AirspyHF+`, `RTL-SDR`, `Auto` (Scans for the first available device)|
-|`DEVICE_SERIAL`           |`0`            |Device Serial Number. This causes much confusement when using RTL-SDR, according to the many forum posts online. For Airspy this is a 64bit hex eg. `0xDD52D95C904534AD`. For RTL-SDR, you need to check `rtl_test`to see a list of available devices, and use the number at the beginning of the line. The serial number, even when set with `rtl_eeprom` doesn't work.<br><br>$ rtl_test<br>Found 2 device(s):<br>0:  RTLSDRBlog, Blog V4, SN: 12345601<br>1:  RTLSDRBlog, Blog V4, SN: 12345602<br><br>Use `DEVICE_SERIAL=1`to select the second device.<br>A value of `0` will acquire the first available device.|
-|`FFT_FPS`                 |`15`           |FFT Frames Per Second|
-|`FFT_BIN_BITS`            |`16`           |FFT Bins, Bins = 2^fft_bin_bits|
-|`INITIAL_FREQUENCY`       |`7100000`      |Initial Center Frequency|
-|`BUFFER_SIZE_MS`          |`50`           |Buffer Size (in milliseconds)|
-|`BUFFER_COUNT`            |`10`           |Buffer Count|
+| Environment Variable         | Default Value      | Notes |
+|:----------------------------:|:------------------:|:------|
+| `BIND_PORT`                  | `5555`             | Port to run SpyServer on |
+| `LIST_IN_DIRECTORY`          | `1`                | List Server in the [AirSpy Directory](https://airspy.com/directory/), `1` for yes, `0` for no |
+| `OWNER_NAME`                 |                    | Name in the directory |
+| `OWNER_EMAIL`                |                    | Directory contact |
+| `ANTENNA_TYPE`              |                    | Random Wire / Magnetic Loop / Mini-Whip / Inverted V / etc. |
+| `ANTENNA_LOCATION`           |                    | Latitude/Longitude, e.g. `48.858332, 2.294560` |
+| `GENERAL_DESCRIPTION`        |                    | Description for the directory |
+| `MAXIMUM_CLIENTS`            | `1`                | Maximum number of clients that can connect at a time |
+| `MAXIMUM_SESSION_DURATION`   | `0`                | Maximum session duration in minutes. `0` for no limit |
+| `ALLOW_CONTROL`              | `1`                | Allow clients to retune and change gain of the device |
+| `DEVICE_TYPE`                | `Auto`             | Possible values: `AirspyOne`, `AirspyHF+`, `RTL-SDR`, `Auto` |
+| `DEVICE_SERIAL`              | `0`                | Device serial number. For RTL-SDR: `0` = first device, `1` = second, etc. Use `rtl_test` to identify. For Airspy: 64-bit hex (e.g., `0xDD52D95C904534AD`) |
+| `DEVICE_SAMPLE_RATE`         | `2048000`          | Device sample rate in Hz. Depends on SDR type |
+| `FORCE_8BIT`                 | `0`                | Enable 8-bit compression to save bandwidth |
+| `MAXIMUM_BANDWIDTH`          | `15000`            | Maximum IQ bandwidth (Hz) that clients can set |
+| `FFT_FPS`                    | `15`               | FFT frames per second |
+| `FFT_BIN_BITS`               | `16`               | FFT bins = 2^`FFT_BIN_BITS` |
+| `INITIAL_FREQUENCY`          | `7100000`          | Initial center frequency in Hz |
+| `MINIMUM_FREQUENCY`          | `0`                | Minimum tunable frequency in Hz |
+| `MAXIMUM_FREQUENCY`          | `35000000`         | Maximum tunable frequency in Hz |
+| `FREQ_CORR_PPB`              | `0`                | Frequency correction in parts per billion |
+| `INITIAL_GAIN`               | `5`                | Initial tuner gain |
+| `RTL_SAMPLING_MODE`          | `0`                | RTL-SDR mode: `0` = Quadrature, `1` = Direct Sampling I, `2` = Direct Sampling Q |
+| `CONVERTER_OFFSET`           | `-120000000`       | Set to `-120000000` to enable SpyVerter offset |
+| `ENABLE_BIAS_TEE`            | `0`                | For AirspyOne only – enables Bias-T for LNA or SpyVerter |
+| `INPUT_BUFFER_SIZE_MS`       | `50`               | Input buffer size in milliseconds |
+| `INPUT_BUFFER_COUNT`         | `10`               | Number of input buffers |
+| `OUTPUT_BUFFER_SIZE_MS`      | `50`               | Output network buffer size in milliseconds |
+
