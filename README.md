@@ -42,7 +42,7 @@ All configuration for this Docker container is done via environmental variables 
 | `MAXIMUM_FREQUENCY`          | *(unset = ignored)*| Maximum allowed frequency in Hz |
 | `FREQ_CORR_PPB`              | *(unset = ignored)*| Frequency correction (parts per billion) |
 | `INITIAL_GAIN`               | *(unset = ignored)*| Initial tuner gain |
-| `RTL_SAMPLING_MODE`          | *(unset = ignored)*| RTL-SDR mode: `0` = Quadrature, `1` = Direct I, `2` = Direct Q |
+| `RTL_SAMPLING_MODE`          | `2`                | RTL-SDR mode: `0` = Quadrature, `1` = Direct I, `2` = Direct Q |
 | `CONVERTER_OFFSET`           | *(unset = ignored)*| Set to `-120000000` to enable SpyVerter upconverter |
 | `ENABLE_BIAS_TEE`            | *(unset = ignored)*| For AirspyOne only — enables Bias-T for LNA/SpyVerter |
 | `INPUT_BUFFER_SIZE_MS`       | `50`               | Input buffer size (milliseconds) |
