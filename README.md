@@ -21,7 +21,7 @@ All configuration for this Docker container is done via environmental variables 
 | Environment Variable         | Default Value      | Notes |
 |:----------------------------:|:------------------:|:------|
 | `BIND_PORT`                  | `5555`             | Port to run SpyServer on |
-| `LIST_IN_DIRECTORY`          | `1`                | List server in the [AirSpy Directory](https://airspy.com/directory/) (`1` = yes, `0` = no) |
+| `LIST_IN_DIRECTORY`          | `0`                | List server in the [AirSpy Directory](https://airspy.com/directory/) (`1` = yes, `0` = no) |
 | `OWNER_NAME`                 | *(empty)*          | Name shown in directory (optional) |
 | `OWNER_EMAIL`                | *(empty)*          | Contact email shown in directory (optional) |
 | `ANTENNA_TYPE`               | *(empty)*          | Antenna description (e.g. Random Wire / Mini-Whip / X-50N) |

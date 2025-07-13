@@ -5,7 +5,7 @@ CONFIG=/etc/spyserver/spyserver.config
 
 ### Always update these with default fallbacks
 sed -i "s/bind_port.*/bind_port = ${BIND_PORT:=5555}/g" $CONFIG
-sed -i "s/list_in_directory.*/list_in_directory = ${LIST_IN_DIRECTORY:=1}/g" $CONFIG
+sed -i "s/list_in_directory.*/list_in_directory = ${LIST_IN_DIRECTORY:=0}/g" $CONFIG
 sed -i "s/owner_name.*/owner_name = ${OWNER_NAME:=}/g" $CONFIG
 sed -i "s/owner_email.*/owner_email = ${OWNER_EMAIL:=}/g" $CONFIG
 sed -i "s/antenna_type.*/antenna_type = ${ANTENNA_TYPE:=}/g" $CONFIG
